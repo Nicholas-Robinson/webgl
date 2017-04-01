@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>Prac 1</title>
+
+        <script type="text/javascript" src="glMatrix-0.9.5.min.js"></script>
+
+        <script id="vertex-shader" type="x-shader/x-vertex">
+            attribute vec3 vertexPosition; 
+            
+            uniform mat4 modelViewMatrix; 
+            uniform mat4 projectionMatrix; 
+            
+            void main(void) { 
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(vertexPosition, 1.0); 
+            }
+        </script>
+
+        <script id="fragment-shader" type="x-shader/x-vertex">
+            precision mediump float;
+            
+            void main(void) {
+                gl_FragColor = vec4 (1.0, 0.0, 0.0, 0.5) ;
+            }
+        </script>
+
+        <script src="script.1.js"></script>
+
+    </head>
+
+    <body onload="webGLStart();">
+        <canvas width="500" height="500" id="scene" />
+    </body>
+
+</html>
